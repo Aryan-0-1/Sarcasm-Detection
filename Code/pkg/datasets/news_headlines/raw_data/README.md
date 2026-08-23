@@ -1,0 +1,4 @@
+- News headlines - Misra et al. (2019):
+    - Data is downloaded in JSON format
+    - https://www.kaggle.com/rmisra/news-headlines-dataset-for-sarcasm-detection
+    - Once downloaded, move Sarcasm_Headlines_Dataset_v2.json (files from download) into this directory
