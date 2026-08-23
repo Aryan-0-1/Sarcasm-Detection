@@ -1,0 +1,41 @@
+venv
+.venv
+.idea
+__pycache__/
+*.pyc
+*.aux
+*.bbl
+*.csv
+*.json
+
+# Streamlit secrets hold the HF model id / tokens - never commit them.
+.streamlit/secrets.toml
+
+GLOVEDATA
+Code/stanford-corenlp-full-2018-10-05
+Code/TrainedModels/*
+
+Code/pkg/datasets/**/processed_data/*.csv
+Code/pkg/datasets/**/processed_data/**/*.pckl
+
+
+Code/pkg/datasets/**/raw_data/*
+
+# 3.67GB of GloVe / ELMo weights. Legacy pipeline only; never deployable.
+Code/pkg/language_models/*
+
+# Model weights live on the HuggingFace Hub, not in git - see the README.
+Code/pkg/trained_models/*
+
+!Code/pkg/trained_models/attention-bi-lstm_with_elmo_on_2.h5
+!Code/pkg/datasets/amazon_reviews/processing_scripts/*
+!Code/pkg/datasets/**/raw_data/*.md
+!Code/pkg/language_models/*.md
+!Code/pkg/language_models/**/*.md
+
+# The News Headlines corpus is small (11MB total) and freely redistributable, so it is
+# committed: it makes the training notebook reproducible straight from a clone.
+!Code/pkg/datasets/news_headlines/raw_data/*.json
+
+# Test-set results written by the training notebook; read by the README and the app.
+!metrics.json

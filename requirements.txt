@@ -1,0 +1,20 @@
+# Runtime dependencies for the Streamlit app (app.py) and the CLI (Code/console.py).
+# Kept deliberately slim so it fits inside Streamlit Community Cloud's disk budget.
+# For training / data processing / the legacy 2020 scripts, use requirements-dev.txt.
+
+# On Linux (Streamlit Cloud) the default PyPI `torch` is the CUDA build, ~2.5GB, which
+# overruns the Cloud disk limit. The `+cpu` local version only exists on PyTorch's own
+# index, so naming it forces the small CPU wheel. On Windows/macOS the PyPI wheel is
+# already CPU-only and has no `+cpu` suffix, hence the marker split.
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.13.0+cpu ; sys_platform == "linux"
+torch==2.13.0 ; sys_platform != "linux"
+
+transformers==5.14.1
+tokenizers==0.22.2
+safetensors==0.8.0
+huggingface_hub==1.24.0
+
+streamlit==1.51.0
+numpy==2.0.1
+matplotlib==3.9.1
